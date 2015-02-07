@@ -8,7 +8,7 @@ if (isset($_SESSION['valid']))
 	if (isset($_POST['pnr']))
 	{
 		$pnr = $_POST['pnr'];
-		$info = file_get_contents($msyshost . "/api.php?key=".$msyskey."&usr=".$msysuser."&cmd=isMember&pnr=" .$pnr);
+		$info = file_get_contents($msyshost . "/api.php?key=".$msyskey."&usr=".$msysuser."&cmd=isMember&ssn=" .$pnr);
 
 		$split = explode(",", $info);
 		$payed = $split[1];
