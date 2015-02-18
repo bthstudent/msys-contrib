@@ -46,7 +46,7 @@ if (isset($_SESSION['valid']))
 		<img src=\"$image\">
 		<h1>$phrase</h1>
 		<form name=\"pnr\" method=\"post\" action=\"ismember.php\">
-                Personnummer: <input name=\"pnr\" type=\"number\" id=\"pnr\">
+                Personnummer: <input name=\"pnr\" type=\"text\" id=\"pnr\">
                 <button type=\"submit\" name=\"submit\" value=\"Kontrollera\">Kontrollera</button>
 		<p></p>
 		<a href=\"logout.php\" class=\"logout\">Logga ut</a>
