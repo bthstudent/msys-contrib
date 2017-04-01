@@ -22,10 +22,26 @@ if (isset($_SESSION['valid']))
 		}
 		else
 		{
-			$title = "Icke medlem";
-			$style = "misc/failure.css";
-			$phrase = $pnr . "<br>Personen är inte medlem";
-			$image = "misc/red.png";
+            $student = false;
+            if ($doldap === true) {
+                require "lib/ldap.php";
+                $student = searchLDAP(
+                    $ldaphost, $binddn, $bindpw, $searchbase,
+                    $searchfilter, $pnr
+                );
+            }
+
+            if ($student) {
+                $title = "Student (ej medlem)";
+                $style = "misc/sortof.css";
+                $phrase = $pnr . "<br>Personen är inte medlem, dock student";
+                $image = "misc/yellow.png";
+            } else {
+                $title = "Icke medlem";
+                $style = "misc/failure.css";
+                $phrase = $pnr . "<br>Personen är inte medlem (och troligen inte student heller)";
+                $image = "misc/red.png";
+            }
 		}
 
 	}
