@@ -6,6 +6,7 @@
 #
 # For details regarding CC0, please read the LICENSE file
 
+# shellcheck source=example-config.sh
 source ./local-config.sh
 
 # If current month is in second half of the year the current semester
